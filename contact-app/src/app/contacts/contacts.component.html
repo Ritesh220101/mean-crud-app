@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>Add Contact</h1>
+    <form #contactsForm="ngForm" (submit)="addContact()">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" [(ngModel)]="first_name"  class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" [(ngModel)]="last_name"  class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Phone</label>
+            <input type="text" name="phone" [(ngModel)]="phone"  class="form-control">
+        </div>
+        <input type="submit" class="btn btn-success" style="margin: 20px;" value="Add">  
+        <input type="submit" class="btn btn-success" style="margin:20px 20px;" (click)="reset()" value="Reset">
+    </form>
+</div> 
+<hr>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Phone Number</td>
+        </thead>
+        <tr *ngFor="let contact of contacts" class="table-primary">
+            <td>{{contact.first_name}}</td>
+            <td>{{contact.last_name}}</td>
+            <td>{{contact.phone}}</td>
+            <td ><button (click)="deleteContact(contact._id)">Delete</button></td>
+            <td><button (click)="updateContact(contact)">Update</button></td>
+
+        </tr>
+    </table>
+</div>
+
+
